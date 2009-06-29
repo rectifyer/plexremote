@@ -1,2 +1,12 @@
 plexremote
 ----------
+
+This is a very early alpha version, only for testing purposes. No bug reports until I release the first beta please :)
+
+Requirements:
+  - PHP5
+  - cURL
+  - plex (or xbmc) with enabled web server
+
+Installation:
+  - update sendcommand.php with your plex web server ip/port

@@ -1,0 +1,57 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #7B351C;
+	font-family: Helvetica, "Lucida Grande", Verdana, Arial, sans-serif;
+	font-size: 14px;
+	color: #FFF;
+}
+
+#touchArea {
+  background-color: #000;
+  margin: 15px;
+  height: 150px;
+}
+
+#debug {
+	position: absolute;
+	top: 190px;
+	left: 10px;
+	width: 300px;
+}
+
+/* IPHONE ANIMATION API CLASSES */
+/*
+.divRtC {
+	-webkit-animation-name: 'RtC';
+	-webkit-animation-duration: 1s;
+}
+.divCtL {
+	-webkit-animation-name: 'CtL';
+	-webkit-animation-duration: 1s;
+}
+.divLtC {
+	-webkit-animation-name: 'LtC';
+	-webkit-animation-duration: 1s;
+}
+.divCtR {
+	-webkit-animation-name: 'CtR';
+	-webkit-animation-duration: 1s;
+}
+@-webkit-keyframes 'RtC' {
+	from { left: 490px; }
+	to { left: 10px; }
+}
+@-webkit-keyframes 'CtL' {
+	from { left: 10px; }
+	to { left: -490px; }
+}
+@-webkit-keyframes 'LtC' {
+	from { left: -490px; }
+	to { left: 10px; }
+}
+@-webkit-keyframes 'CtR' {
+	from { left: 10px; }
+	to { left: 490px; }
+}
+*/
