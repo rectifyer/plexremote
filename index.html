@@ -6,16 +6,32 @@
   <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="YES" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="apple-touch-icon" href="images/WebClipIcon.png" />
+  <link rel="apple-touch-icon" href="images/webclip.png" />
   <link rel="stylesheet" href="css/main.css" />
   <script type="text/javascript" src="js/mootools-1.2-core.js"></script>
   <script type="text/javascript" src="js/mootools-1.2-more.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
+  <div id="titleBar">
+    <div class="plexLogo"><img alt="" src="images/plexLogo.png" /></div>
+  </div>
   <div id="touchArea"></div>
-  <div id="debug">
-  	<div id="dir" style="font-weight: bold;">Direction: Null</div><br />
+  <div id="buttons">
+    <div id="button_exit" onclick="plex.previousMenu();"></div>
+    <div id="button_back" onclick="plex.parentDir();"></div>
+    <div id="button_menu" onclick="plex.contentMenu();"></div>
+    <div id="button_info" onclick="plex.info();"></div>
+    <div id="button_ok" onclick="plex.select();"></div>
+  </div>
+  <div id="tabBar">
+    <div class="active"><a id="tabBar_gestures" href="#" onclick="return false;">Gestures</a></div>
+  </div>
+  
+  
+  <div class="debug" id="debug_dir">dir: null</div>
+  <div class="debug" id="debug_command">com: null</div>
+  	<!--
   	<div id="oX">Start X-Coord: Null</div>
   	<div id="nX">Current X-Coord: Null</div>
   	<div id="scrollX">Scroll Distance: Null</div>
@@ -23,7 +39,7 @@
   	<div id="swipesRight">Swipes Right: Null</div>
   	<div id="swipesUp">Swipes Up: Null</div>
   	<div id="swipesDown">Swipes Down: Null</div>
-  	<div id="lastCommand">Last Command: Null</div>
-  </div>
+  	
+  	-->
 </body>
 </html>

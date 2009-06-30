@@ -1,23 +1,203 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+}
 body {
 	margin: 0px;
 	padding: 0px;
-	background-color: #7B351C;
+	background-color: #16191d;
 	font-family: Helvetica, "Lucida Grande", Verdana, Arial, sans-serif;
 	font-size: 14px;
 	color: #FFF;
 }
 
-#touchArea {
-  background-color: #000;
-  margin: 15px;
-  height: 150px;
+/*****/
+
+#titleBar {
+  height: 43px;
+  color: #fff;
+  font-size: 20px;
+  font-family: Arial;
+  font-weight: bold;
+  background-image: url("../images/titleBar_bg.png");
+	background-color: #000;
+  background-repeat: repeat-x;
+	background-position: 0 50%;
+  width: 100%;
+  z-index: 200;
+  position: relative;
+}
+#titleBar > .icon {
+	float: right;
+	padding: 7px 7px 0 0;
+	text-align: right;
+}
+#titleBar > .backButton {
+	float: left;
+	padding: 6px 0 0 6px;
+}
+#titleBar > .title {
+	 padding-top: 10px;
+	 margin: 0 50px;
+	 text-align: center;
+}
+#titleBar > .plexLogo {
+	 padding-top: 1px;
+	 margin: 0 50px;
+	 text-align: center;
 }
 
-#debug {
+/*****/
+
+#touchArea {
+  background-image: url("../images/touchArea_bg.png");
+  background-position: 0 0;
+  opacity: 0.4;
+  height: 286px;
+  border: solid 2px #2D333C;
+}
+
+/*****/
+
+#buttons {
+	height:  79px;
+}
+
+#button_ok {
+	background-image: url("../images/button_ok.png");
+	width: 62px;
+	height: 62px;
+  margin: 8px auto 0 auto;
+}
+#button_exit {
+	background-image: url("../images/button_exit.png");
+	width: 59px;
+	height: 31px;
+	float: left;
+	margin:  15px 0 0 9px;
+}
+#button_back {
+	background-image: url("../images/button_back.png");
+	width: 59px;
+	height: 31px;
+	float: left;
+	margin:  15px 0 0 1px;
+}
+#button_info {
+	background-image: url("../images/button_info.png");
+	width: 59px;
+	height: 31px;
+	float: right;
+	margin:  15px 1px 0 0;
+}
+#button_menu {
+	background-image: url("../images/button_menu.png");
+	width: 59px;
+	height: 31px;
+	float: right;
+	margin:  15px 9px 0 0;
+}
+
+/*****/
+
+#tabBar {
+  position: absolute;
+  bottom: 0;
+  height: 49px;
+  background-image: url("../images/tabBar_bg.png");
+	background-color: #000;
+  background-repeat: repeat-x;
+  width: 100%;
+  z-index: 200;
+	padding-left: 2px;
+}
+#tabBar > div {
+	float: left;
+	width: 61px;
+	height: 44px;
+	margin: 3px 2px 2px 0;
+	-webkit-border-radius: 3px;
+}
+#tabBar > div:first-of-type {
+	width: 62px;
+}
+#tabBar > div:last-of-type {
+	width: 63px;
+}
+#tabBar a {
+  padding-top: 32px;
+  color: #c5c5c5;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  width: 61px;
+  text-decoration: none;
+  background-repeat: no-repeat;
+  background-position: 50% 30%;
 	position: absolute;
-	top: 190px;
-	left: 10px;
-	width: 300px;
+}
+#tabBar div.active {
+	background-image: url("../images/tabBar_active_bg.png");
+}
+#tabBar div.active a {
+	color: #fff;
+}
+
+#tabBar a#tabBar_gestures {
+  background-image: url("../images/tabBar_gestures.png");
+	width: 62px;
+}
+#tabBar div.active a#tabBar_gestures {
+  background-image: url("../images/tabBar_gestures_active.png");
+}
+/*
+#tabBar a#tabHistory {
+  background-image: url("../images/tabBar_history.png");
+}
+#tabBar a#tabHistory.active {
+  background-image: url("../images/tabBar_history_active.png");
+}
+#tabBar a#tabSetup {
+  background-image: url("../images/tabBar_setup.png");
+}
+#tabBar a#tabSetup.active {
+  background-image: url("../images/tabBar_setup_active.png");
+}
+#tabBar a#tabHelp {
+  background-image: url("../images/tabBar_help.png");
+}
+#tabBar a#tabHelp.active {
+  background-image: url("../images/tabBar_help_active.png");
+}
+#tabBar a#tabLogout {
+  background-image: url("../images/tabBar_logout.png");
+	width: 63px;
+}
+#tabBar a#tabLogout.active {
+  background-image: url("../images/tabBar_logout_active.png");
+}
+*/
+
+/*****/
+
+.debug {
+  position: absolute;
+	font-size: 10px;
+	z-index: 9999;
+	color:  #999;
+}
+#debug_dir {
+	top: 2px;
+	left: 5px;
+	width: 150px;
+}
+#debug_command {
+	top: 15px;
+	left: 5px;
+	width: 150px;
 }
 
 /* IPHONE ANIMATION API CLASSES */

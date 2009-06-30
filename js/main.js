@@ -17,6 +17,10 @@ remote = {
 
 //domready
 window.addEvent('domready', function() {
+  document.ontouchmove = function(e) {
+    e.preventDefault();
+  };
+
   $('touchArea').addEventListener('touchstart', touchHandler, false);
   $('touchArea').addEventListener('touchmove', touchHandler, false);
   $('touchArea').addEventListener('touchend', touchHandler, false);
@@ -57,8 +61,8 @@ function touchHandler(e) {
   			remote.scrollY = 0;
   			
   			//debug
-  			$('dir').innerHTML = 'Direction: Null';
-  			$('oX').innerHTML = 'Start Coord: ' + remote.startX + 'px, ' + remote.startY + 'px';
+  			$('debug_dir').innerHTML = 'dir: null';
+  			//$('oX').innerHTML = 'Start Coord: ' + remote.startX + 'px, ' + remote.startY + 'px';
   		}
   		
       break;
@@ -77,13 +81,13 @@ function touchHandler(e) {
 				remote.scrollY = Math.abs(remote.startY - remote.currentY);
 				
 				//debug
- 				$('scrollX').innerHTML = 'Scroll Distance: ' + remote.scrollX + 'px, ' + remote.scrollY + 'px';
-  			$('nX').innerHTML = 'Current Coord: ' + remote.currentX + 'px, ' + remote.currentY + 'px';
+ 				//$('scrollX').innerHTML = 'scroll: ' + remote.scrollX + 'px, ' + remote.scrollY + 'px';
+  			//$('nX').innerHTML = 'current coord: ' + remote.currentX + 'px, ' + remote.currentY + 'px';
   			
   			//swipe right to the left
   			if(remote.startX > remote.currentX && remote.scrollY < remote.swipeThreshold) {
   			  //debug
-  				$('dir').innerHTML = 'Direction: flicked right->left';
+  				$('debug_dir').innerHTML = 'dir: right->left';
   				  
           //scroll left (further from x=0)
   				if(parseInt(remote.scrollX / remote.swipeThreshold) > remote.swipes.left) {
@@ -105,7 +109,7 @@ function touchHandler(e) {
   			//swipe left to the right
   			else if(remote.startX < remote.currentX && remote.scrollY < remote.swipeThreshold) {
   			  //debug
-  				$('dir').innerHTML = 'Direction: flicked left->right';
+  				$('debug_dir').innerHTML = 'dir: left->right';
   				  
   				//scroll right (further from x=0)
   				if(parseInt(remote.scrollX / remote.swipeThreshold) > remote.swipes.right) {
@@ -127,7 +131,7 @@ function touchHandler(e) {
   			//swipe top to bottom
   			else if(remote.startY > remote.currentY && remote.scrollX < remote.swipeThreshold) {
   			  //debug
-  				$('dir').innerHTML = 'Direction: flicked up->down';
+  				$('debug_dir').innerHTML = 'dir: down->up';
   				
   				//scroll down (further from y=0)
   				if(parseInt(remote.scrollY / remote.swipeThreshold) > remote.swipes.down) {
@@ -149,7 +153,7 @@ function touchHandler(e) {
   			//swipe bottom to top
   			else if(remote.startY < remote.currentY && remote.scrollX < remote.swipeThreshold) {
   			  //debug
-  				$('dir').innerHTML = 'Direction: flicked down->up';
+  				$('debug_dir').innerHTML = 'dir: up->down';
   				
   				//scroll up (further from y=0)
   				if(parseInt(remote.scrollY / remote.swipeThreshold) > remote.swipes.up) {
@@ -187,10 +191,10 @@ function touchHandler(e) {
 
 //alert
 function alertIt() {
-	$('swipesLeft').innerHTML = 'Swipes Left: ' + remote.swipes.left;
-	$('swipesRight').innerHTML = 'Swipes Right: ' + remote.swipes.right;
-	$('swipesUp').innerHTML = 'Swipes Up: ' + remote.swipes.up;
-	$('swipesDown').innerHTML = 'Swipes Down: ' + remote.swipes.down;
+	//$('swipesLeft').innerHTML = 'Swipes Left: ' + remote.swipes.left;
+	//$('swipesRight').innerHTML = 'Swipes Right: ' + remote.swipes.right;
+	//$('swipesUp').innerHTML = 'Swipes Up: ' + remote.swipes.up;
+	//$('swipesDown').innerHTML = 'Swipes Down: ' + remote.swipes.down;
 }
 
 /*
@@ -202,32 +206,43 @@ plex = {
   run: function(c) {
     var r = new Request({method: 'get', url: 'sendcommand.php'});
     r.send('command=' + c);
-    $('lastCommand').innerHTML = 'Last Command: ' + c;
+    $('debug_command').innerHTML = 'com: ' + c;
   },
   
-  //click
-  click: function() {
+  select: function() {
     this.run('Action(7)'); //ACTION_SELECT_ITEM
   },
   
-  //move left
   moveLeft: function() {
     this.run('Action(1)'); //ACTION_MOVE_LEFT
   },
   
-  //move right
   moveRight: function() {
     this.run('Action(2)'); //ACTION_MOVE_RIGHT
   },
   
-  //move up
   moveUp: function() {
     this.run('Action(3)'); //ACTION_MOVE_UP
   },
   
-  //move down
   moveDown: function() {
     this.run('Action(4)'); //ACTION_MOVE_DOWN
+  },
+  
+  previousMenu: function() {
+    this.run('Action(10)'); //ACTION_PREVIOUS_MENU
+  },
+  
+  parentDir: function() {
+    this.run('Action(9)'); //ACTION_PARENT_DIR
+  },
+  
+  info: function() {
+    this.run('Action(11)'); //ACTION_SHOW_INFO
+  },
+  
+  contentMenu: function() {
+    this.run('Action(117)'); //ACTION_CONTEXT_MENU
   }
 };
 

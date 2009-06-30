@@ -10,3 +10,7 @@ Requirements:
 
 Installation:
   - update sendcommand.php with your plex web server ip/port
+  - open mobile Safari and browse to the URL of the remote
+  - click the + and add a link on your home screen
+  - use this home screen icon to launch the remote, it behaves like a native app
+
